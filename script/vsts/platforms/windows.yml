@@ -10,15 +10,19 @@ phases:
     matrix:
       x64:
         buildArch: x64
-      # TODO: x86 is currently not supported on VSTS
-      # x86:
-      #   buildArch: x86
+      x86:
+        buildArch: x86
 
   steps:
   - task: NodeTool@0
     inputs:
       versionSpec: 8.9.3
     displayName: Install Node.js 8.9.3
+    condition: eq(variables['buildArch'], 'x64')
+
+  - script: |
+    displayName: Install Node.js 8.9.3 (x86)
+    condition: eq(variables['buildArch'], 'x64')
 
   - script: |
       IF NOT EXIST C:\tmp MKDIR C:\tmp
