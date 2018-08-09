@@ -1,5 +1,6 @@
 fs = require 'fs-plus'
 path = require 'path'
+{app} = require 'electron'
 Spawner = require './spawner'
 WinShell = require './win-shell'
 WinPowerShell = require './win-powershell'
@@ -94,7 +95,7 @@ createShortcuts = (locations, callback) ->
 # provided by Squirrel's Update.exe
 updateShortcuts = (callback) ->
   if homeDirectory = fs.getHomeDirectory()
-    desktopShortcutPath = path.join(homeDirectory, 'Desktop', 'Atom.lnk')
+    desktopShortcutPath = path.join(homeDirectory, 'Desktop', "#{app.getName()}.lnk")
     # Check if the desktop shortcut has been previously deleted and
     # and keep it deleted if it was
     fs.exists desktopShortcutPath, (desktopShortcutExists) ->
