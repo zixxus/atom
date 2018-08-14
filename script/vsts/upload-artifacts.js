@@ -45,7 +45,7 @@ uploadToS3(
           repo: CONFIG.channel !== 'nightly' ? 'atom' : 'atom-nightly-releases',
           name: CONFIG.computedAppVersion,
           tag: `v${CONFIG.computedAppVersion}`,
-          draft: false,
+          draft: CONFIG.channel !== 'nightly',
           prerelease: CONFIG.channel !== 'stable',
           reuseRelease: true,
           skipIfPublished: true,
