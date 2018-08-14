@@ -52,13 +52,13 @@ uploadToS3(
           assets
         }, function (err, release) {
           if (err) {
-            console.error("An error occurred while publishing the release:\n\n", err)
+            console.error('An error occurred while publishing the release:\n\n', err)
           } else {
-            console.log("Release published successfully: ", release.html_url)
+            console.log('Release published successfully: ', release.html_url)
           }
         })
       } else {
-        console.log("Skipping GitHub release creation")
+        console.log('Skipping GitHub release creation')
       }
     }).catch((err) => {
       console.error('An error occurred while uploading the release:', err)
