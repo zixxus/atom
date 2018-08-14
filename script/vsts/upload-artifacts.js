@@ -6,7 +6,7 @@ const path = require('path')
 const glob = require('glob')
 const publishRelease = require('publish-release')
 const uploadToS3 = require('./lib/upload-to-s3')
-const CONFIG = require('./config')
+const CONFIG = require('../config')
 
 const yargs = require('yargs')
 const argv = yargs
